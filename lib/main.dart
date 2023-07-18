@@ -1,5 +1,4 @@
 import 'package:banking_application/LocalStorage.dart';
-import 'package:banking_application/Screens/Home.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
@@ -35,10 +34,19 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  int addition(a, b) {
+    return a + b;
+  }
 
   void _incrementCounter() {
     setState(() {
       _counter++;
+    });
+  }
+
+  void _decrementCounter() {
+    setState(() {
+      _counter--;
     });
   }
 
@@ -60,24 +68,25 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-            TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const HomeScreen()),
-                  );
-                },
-                child: const Text(
-                  "home screen",
-                  style: TextStyle(color: Colors.black),
-                ))
+            const SizedBox(
+              height: 100,
+            ),
+            ElevatedButton(
+              onPressed: _incrementCounter,
+              child: const Icon(Icons.add),
+            ),
+            ElevatedButton(
+              onPressed: _decrementCounter,
+              child: const Icon(Icons.remove),
+            ),
           ],
         ),
       ),
+
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.safety_check),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
