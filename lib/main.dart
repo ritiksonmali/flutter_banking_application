@@ -1,8 +1,7 @@
-import 'package:banking_application/LocalStorage.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
-  await LocalStorage.init();
+  // await LocalStorage.init();
   runApp(const MyApp());
 }
 
